@@ -1,5 +1,5 @@
-import { from } from 'form-data'
 import React from 'react'
 import { Text } from 'react-native'
+import Estilo from './estilo'
 
-export default () => <Text>Primeiro!</Text>
+export default () => <Text style={Estilo.fontG}>Primeiro!</Text>
