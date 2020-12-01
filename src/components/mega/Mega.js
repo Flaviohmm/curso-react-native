@@ -18,11 +18,25 @@ export default class Mega extends React.Component {
         return nums.includes(novo) ? this.gerarNumeroNaoContido(nums) : novo
     }
 
+    // gerarNumeros = () => {
+    //     const numeros = Array(this.state.qtdeNumeros)
+    //         .fill()
+    //         .reduce(num => [...num, this.gerarNumeroNaoContido(nums)], [])
+    //         .sort((a, b) => a - b)
+    //     this.setState({ numeros })
+    // }
+
     gerarNumeros = () => {
-        const numeros = Array(this.state.qtdeNumeros)
-            .fill()
-            .reduce(nums => [...nums, this.gerarNumeroNaoContido(nums)], [])
-            .sort((a, b) => a - b)
+        const { qtdeNumeros } = this.state
+        const numeros = []
+
+        for (let i = 0; i < qtdeNumeros; i++) {
+            const num = this.gerarNumeroNaoContido(numeros)
+            numeros.push(num)
+        }
+
+        numeros.sort((a, b) => a - b)
+
         this.setState({ numeros })
     }
 
